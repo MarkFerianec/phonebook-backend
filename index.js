@@ -24,8 +24,17 @@ let persons = [
   },
 ];
 
-app.get('/', (request, response) => {
-  response.send('<h1>Hello World!</h1>');
+// app.get('/', (request, response) => {
+//   response.send('<h1>Hello World!</h1>');
+// });
+
+app.get('/info', (request, response) => {
+  const phonebookEntries = persons.length;
+  const date = new Date();
+
+  response.send(
+    `<p>Phonebook has info for ${phonebookEntries} people</p></br><p>${date}</p>`
+  );
 });
 
 app.get('/api/persons', (request, response) => {
